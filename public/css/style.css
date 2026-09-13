@@ -1,0 +1,221 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex:1;
+}
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/* Footer */
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/*cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem ;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+.listing-link{
+    text-decoration: none;
+}
+
+/* card Effect */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* New Page */
+
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Edit Page */
+.edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Show Page */
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display:  flex;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Map Picker & Marker styles */
+.custom-picker-marker,
+.custom-map-marker {
+    background: transparent;
+    border: none;
+}
+
+/* Filters Bar (Airbnb style) */
+#filters {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    gap: 2rem;
+}
+
+#filters::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.filter {
+    text-align: center;
+    opacity: 0.7;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.5rem;
+}
+
+.filter:hover, .filter.active {
+    opacity: 1;
+    border-bottom: 2px solid #222;
+}
+
+.filter i {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.filter p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Tax Toggle Switch */
+.tax-toggle {
+    border: 1px solid #dee2e6;
+    border-radius: 1rem;
+    height: 3.25rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.tax-toggle .form-check-input:checked {
+    background-color: #222;
+    border-color: #222;
+}
+
+/* Tax Info (+18% GST) */
+.tax-info {
+    display: none;
+    color: #717171;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Heart Like Button */
+.like-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    color: white;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.like-btn:hover {
+    transform: scale(1.15);
+}
+
+.like-btn.liked {
+    color: #ff385c !important;
+}
+

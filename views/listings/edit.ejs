@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        
+      <h3>Edit your Listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3"> 
+            <label for="title" class="form-label" > Title </label>
+             <input  name="listing[title]" value="<%= listing.title  %>" type="text" class="form-control" required />
+            <div class="valid-feedback">Title looks good!</div>
+            </div>
+        
+        <div class="mb-3"> 
+              <label for="description" class="form-label" > Description </label>
+            <textarea  name="listing[description]" class="form-control" required><%= listing.description %> </textarea>
+            <div class="invalid-feedback">Please enter a short  description</div> 
+          </div>
+        
+        <div class="mb-3"> 
+          Original Listing Image <br/>
+          <img src="<%= listing.image.url%>" style="max-width:200px;height:auto;" alt="Listing Image Preview"/>
+           </div>
+
+       <div class="mb-3"> 
+        <label for="image" class="form-label" >Upload New Image </label>
+        <input name="image" type="file" class="form-control"/>
+        </div>
+
+        <div class="row">
+              <div class="mb-3 col-md-4"> 
+            <label for="price" class="form-label" > Price </label>
+            <input  name="listing[price]" value="<%= listing.price  %>" type="number" class="form-control"  required/>
+            <div class="invalid-feedback">Price should be valid</div>
+        </div>
+
+          <div class="mb-3 col-md-8" > 
+            <label for="country" class="form-label" > Country </label>
+            <input  name="listing[country]" id="listing-country" value="<%= listing.country  %>" type="text" class="form-control" required/>
+            <div class="invalid-feedback">Country name should be valid</div>
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="mb-3 col-md-6"> 
+            <label for="location" class="form-label" > City / Region </label>
+            <input  name="listing[location]" id="listing-location" value="<%= listing.location  %>" type="text" class="form-control" required/>
+            <div class="invalid-feedback">Location should be valid</div>
+          </div>
+
+          <div class="mb-3 col-md-6"> 
+            <label for="landmark" class="form-label" > Street / Landmark / Area <small class="text-muted">(Optional)</small> </label>
+            <input  name="listing[landmark]" id="listing-landmark" value="<%= listing.landmark || '' %>" type="text" class="form-control"/>
+          </div>
+        </div>
+
+        <!-- Interactive Map Location Picker -->
+        <div class="mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <label class="form-label mb-0 fw-semibold">
+              <i class="fa-solid fa-map-location-dot text-danger me-1"></i> Pinpoint Exact Spot on Map
+            </label>
+            <button type="button" id="btn-locate-on-map" class="btn btn-sm btn-outline-danger">
+              <i class="fa fa-crosshairs me-1"></i> Locate on Map
+            </button>
+          </div>
+          <p class="text-muted small mb-2">Click anywhere on the map or drag the red pin to fine-tune the exact location.</p>
+          <div id="location-picker-map" style="height: 320px; width: 100%; border-radius: 10px; border: 1px solid #ced4da; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"></div>
+          <small id="picker-status-text" class="d-block mt-2 text-muted"></small>
+          
+          <!-- Hidden inputs for coordinates -->
+          <input type="hidden" name="listing[geometry][lat]" id="picker-lat" value="<%= listing.geometry && listing.geometry.lat ? listing.geometry.lat : '' %>" />
+          <input type="hidden" name="listing[geometry][lng]" id="picker-lng" value="<%= listing.geometry && listing.geometry.lng ? listing.geometry.lng : '' %>" />
+        </div>
+ 
+        <button class="btn btn-dark edit-btn mt-2 mb-5">Save Changes</button>
+
+    </form>
+</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/js/mapPicker.js"></script>
