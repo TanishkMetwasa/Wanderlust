@@ -286,6 +286,7 @@ Deployment with CI/CD.
 
 GitHub: https://github.com/TanishkMetwasa
 LinkedIn: www.linkedin.com/in/tanishk-metwasa-69a715262
+
 ⭐ Support
 
 If you found this project interesting, consider giving the repository a ⭐ on GitHub.
